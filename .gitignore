@@ -1,0 +1,19 @@
+# 환경변수/비밀키 (절대 올리면 안 됨!)
+.env
+app/.env
+
+# ADK 세션 데이터베이스 (로컬 실행 기록, 안 올려도 됨)
+.adk/
+app/.adk/
+
+# 파이썬 캐시 파일
+__pycache__/
+app/__pycache__/
+*.pyc
+
+# uv 가상환경 (남이 새로 설치하면 됨, 안 올려도 됨)
+.venv/
+
+# OS 관련 잡파일
+.DS_Store
+Thumbs.db
