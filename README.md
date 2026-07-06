@@ -54,6 +54,8 @@ This is exactly the kind of multi-step, tool-using, judgment-requiring task that
 
 **Why `news_search_agent` is wrapped in an `AgentTool` instead of used as a `sub_agent`:** ADK's built-in `google_search` tool cannot be combined with other tools in the same model request. Using `sub_agents=[...]` causes ADK to automatically inject a hidden `transfer_to_agent` tool, which triggers this restriction. Wrapping the sub-agent in `AgentTool` and exposing it as a normal tool on the root agent avoids the conflict while still letting the root agent delegate the news-search task.
 
+**Why not MCP?** I initially considered MCP — the standard way agents connect to external tools — for the news search. In the end, ADK's built-in `google_search` tool already handled this reliably, so I wrapped the news agent as an `AgentTool` instead, avoiding the extra time needed to find and vet a separate MCP server. The capstone's 3-of-6 technology requirement was already met by Agent/ADK, Security, and Skills, so this was a deliberate choice, not a gap.
+
 ## ✨ Features
 
 - **4-category price lookup** (beef, pork, chicken, egg) from Korea's official livestock data authority (KAPE — Korea Institute for Animal Products Quality Evaluation)
